@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Formulario HTML</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
+    <h1>Pelicula</h1>
+    <form id="formPeli" action="#" method="post">
+      ​
+      <label for="titulo">Titulo</label>
+      <input
+        class="form-control"
+        type="text"
+        name="titulo"
+        placeholder="Ej: Star Wars"
+      />
+
+      <br />
+      ​
+      <label for="fecha">Fecha de estreno</label>
+      <input
+        class="form-control"
+        type="date"
+        name="fecha"
+        placeholder="Ej: obi.juan@jedi.com"
+      />
+      ​
+      <br />
+      ​ ​
+      <label for="descripcion">Descripcion</label>
+      <textarea
+        class="form-control"
+        name="descripcion"
+        cols="30"
+        rows="10"
+        placeholder="Max: 100 caracteres"
+      ></textarea>
+      ​
+      <br />
+
+      <label for="trailer">Trailer</label>
+      <input
+        class="form-control"
+        type="url"
+        name="trailer"
+        placeholder="Copie el link aqui"
+      />
+      ​
+      <br />
+      ​
+      <input class="btn btn-primary" type="submit" value="Done!" />
+      ​
+    </form>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"
+      integrity="sha256-bd8XIKzrtyJ1O5Sh3Xp3GiuMIzWC42ZekvrMMD4GxRg="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
