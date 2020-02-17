@@ -1,24 +1,15 @@
 const express = require("express");
-const isEmpty = require("lodash.isempty");
 const router = express.Router();
 
-const {
-  getPeliculas,
-  createPelicula,
-  deletePelicula
-} = require("../controllers/Peliculas");
+const Peliculas = require("../controllers/Peliculas");
 
-router.get("/:id?", ({ params: { id: _id } }, response) => {
-  let query = {};
+router.get("/:id?", async ({ params: { id: _id } }, response) => {
+  const peliculas = await Peliculas.get(_id);
 
-  if (!isEmpty(_id)) {
-    query = { ...query, _id: ObjectId(_id) };
-  }
-
-  getPeliculas(query).then(pelis => response.json({ pelis }));
+  response.json(peliculas);
 });
 
-router.post("/", createPelicula);
-router.delete("/:id", deletePelicula);
+// router.post("/", createPelicula);
+// router.delete("/:id", deletePelicula);
 
 module.exports = router;

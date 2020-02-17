@@ -12,8 +12,8 @@ const client = MongoClient(uri, config);
 
 let _connection;
 
-const connect = async () =>
-  await new Promise((resolve, reject) => {
+const connect = () =>
+  new Promise((resolve, reject) => {
     try {
       client.connect((err, client) => {
         if (err) throw err;
