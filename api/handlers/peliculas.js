@@ -10,22 +10,19 @@ router.get("/:id?", async ({ params: { id: _id } }, response) => {
   response.json({ result });
 });
 
-router.post("/", ({ body: pelicula }, response) => {
-  collection.insertOne(pelicula.body, (err, result) => {
-    if (err) throw err;
+router.post("/", async ({ body: pelicula }, response) => {
+  const result = await peliculas.insert(pelicula);
 
-    response.json({
-      success: true,
-      message: "insertado correctamente."
-    });
+  response.json({
+    success: true,
+    message: "insertado correctamente.",
+    result
   });
 });
 
-router.delete("/:id", ({ params: { id: _id } }, response) => {
-  collection.findOneAndDelete({ _id: ObjectId(_id) }, (err, result) => {
-    if (err) throw err;
-    response.json(result);
-  });
+router.delete("/:id", async ({ params: { id } }, response) => {
+  const result = await peliculas.remove(id);
+  response.json(result);
 });
 
 module.exports = router;
