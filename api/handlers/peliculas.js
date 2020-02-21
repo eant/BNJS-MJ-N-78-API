@@ -1,10 +1,15 @@
 const express = require("express");
+const expressJwt = require("express-jwt");
 
 const peliculas = require("../controllers/peliculas");
 
 const router = express.Router();
 
-router.get("/:id?", async ({ params: { id: _id } }, response) => {
+const jwtCheck = expressJwt({
+  secret: "supersecretkey"
+});
+
+router.get("/:id?", jwtCheck, async ({ params: { id: _id } }, response) => {
   const result = await peliculas.get(_id);
 
   response.json({ result });

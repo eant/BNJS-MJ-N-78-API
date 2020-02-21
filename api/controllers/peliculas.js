@@ -13,7 +13,7 @@ const get = _id =>
     }
 
     try {
-      collection.find(query, { name: 0 }).toArray((err, result) => {
+      collection.find(query).toArray((err, result) => {
         if (err) throw err;
         resolve(result);
       });
